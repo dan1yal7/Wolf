@@ -4,24 +4,53 @@
              x:Class="WolfClient.MainPage"
              Background="#0a0a0a">
 
-    <StackLayout Spacing="5" Orientation="Horizontal" VerticalOptions="Start" HeightRequest="40">
-            
-        <Button Text="File" BackgroundColor="Transparent" TextColor="Gray" FontSize="Caption"/>
 
-        <Button Text="Edit" BackgroundColor="Transparent" TextColor="Gray" FontSize="Caption"/>
+    <StackLayout Spacing="0">
 
-        <Button Text="Repository" BackgroundColor="Transparent" TextColor="Gray" FontSize="Caption"/>
 
-        <Button Text="Branch" BackgroundColor="Transparent" TextColor="Gray" FontSize="Caption"/>
+        <StackLayout Spacing="5" Orientation="Horizontal" VerticalOptions="Start" HeightRequest="40">
 
-        <Button Text="Commit" BackgroundColor="Transparent" TextColor="Gray" FontSize="Caption"/>
 
-        <Button Text="View" BackgroundColor="Transparent" TextColor="Gray" FontSize="Caption"/>
+            <Button Text="File" BackgroundColor="Transparent" TextColor="Gray" FontSize="Caption"/>
 
-        <Button Text="Help" BackgroundColor="Transparent" TextColor="Gray" FontSize="Caption"/>
+            <Button Text="Edit" BackgroundColor="Transparent" TextColor="Gray" FontSize="Caption"/>
 
-    </StackLayout>
+            <Button Text="Repository" BackgroundColor="Transparent" TextColor="Gray" FontSize="Caption"/>
+
+            <Button Text="Branch" BackgroundColor="Transparent" TextColor="Gray" FontSize="Caption"/>
+
+            <Button Text="Commit" BackgroundColor="Transparent" TextColor="Gray" FontSize="Caption"/>
+
+            <Button Text="View" BackgroundColor="Transparent" TextColor="Gray" FontSize="Caption"/>
+
+            <Button Text="Help" BackgroundColor="Transparent" TextColor="Gray" FontSize="Caption"/>
+
+        </StackLayout>
+
+        <BoxView HeightRequest="1" BackgroundColor="#2a2a2a" HorizontalOptions="Fill"/>
+
+
+        <HorizontalStackLayout BackgroundColor="#1a1a1a" 
+                       HeightRequest="44" 
+                       Padding="8,0">
     
+            <Border BackgroundColor="#2a2a2a"
+            Stroke="#444444"
+            StrokeThickness="1"
+            StrokeShape="RoundRectangle 4"
+            Padding="10,4"
+            HeightRequest="28"
+            VerticalOptions="Center">
+                <HorizontalStackLayout Spacing="6" VerticalOptions="Center">
+                    <Label FontFamily="FontAwesome" TextColor="#aaaaaa" FontSize="12" VerticalOptions="Center"/>
+                    <Label Text="main" TextColor="#ffffff" FontSize="12" VerticalOptions="Center"/>
+                    <Label Text="v" TextColor="#aaaaaa" FontSize="10" VerticalOptions="Center"/>
+                </HorizontalStackLayout>
+            </Border>
 
+        </HorizontalStackLayout>
+    </StackLayout>
 
+       
+    
 </ContentPage>
