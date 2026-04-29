@@ -33,7 +33,7 @@
         <HorizontalStackLayout BackgroundColor="#1a1a1a" 
                        HeightRequest="44" 
                        Padding="8,0">
-    
+
             <Border BackgroundColor="#2a2a2a"
             Stroke="#444444"
             StrokeThickness="1"
@@ -42,15 +42,29 @@
             HeightRequest="28"
             VerticalOptions="Center">
                 <HorizontalStackLayout Spacing="6" VerticalOptions="Center">
-                    <Label FontFamily="FontAwesome" TextColor="#aaaaaa" FontSize="12" VerticalOptions="Center"/>
+                    <Label Text="&#xe97a;" FontFamily="MaterialIcons" TextColor="#aaaaaa" FontSize="15" VerticalOptions="Center"/>
                     <Label Text="main" TextColor="#ffffff" FontSize="12" VerticalOptions="Center"/>
-                    <Label Text="v" TextColor="#aaaaaa" FontSize="10" VerticalOptions="Center"/>
+                    <Label Text="&#xe5c5;" FontFamily="MaterialIcons" TextColor="#aaaaaa" FontSize="15" VerticalOptions="Center"/>
                 </HorizontalStackLayout>
             </Border>
 
-        </HorizontalStackLayout>
-    </StackLayout>
+
+             <!--TODO: Extract header and subheader into different components and call them  in Main page-->
+            
+            
+            <Button Text="Fetch"  BackgroundColor="Transparent" TextColor="Gray" FontSize="Caption" />
+            
+            <Button Text="Pull" BackgroundColor="Transparent" TextColor="Gray" FontSize="Caption" />
+            
+            <Button Text="Push" BackgroundColor="Transparent" TextColor="Gray" FontSize="Caption" />
+            
+            
+        </HorizontalStackLayout> 
+        
+        
 
        
-    
+    </StackLayout>
+
+      
 </ContentPage>
