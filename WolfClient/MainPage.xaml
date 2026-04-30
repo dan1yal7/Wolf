@@ -50,9 +50,11 @@
 
 
              <!--TODO: Extract header and subheader into different components and call them  in Main page-->
-            
-            
-            <Button Text="Fetch"  BackgroundColor="Transparent" TextColor="Gray" FontSize="Caption" />
+
+
+
+            <Label Text="south" FontFamily="MaterialIcons" TextColor="#aaaaaa" FontSize="15" VerticalOptions="Center" Margin="10,0"/>
+            <Button Text="Fetch" BackgroundColor="Transparent" TextColor="Gray" FontSize="Caption" />
             
             <Button Text="Pull" BackgroundColor="Transparent" TextColor="Gray" FontSize="Caption" />
             
