@@ -64,7 +64,7 @@
             </VerticalStackLayout>
 
             <VerticalStackLayout VerticalOptions="Center" Spacing="0">
-                <Label Text="north" FontFamily="MaterialIcons" TextColor="#aaaaaa" FontSize="15" HorizontalOptions="Center"  Margin="0,2,0,0"/>
+                <Label Text="north" FontFamily="MaterialIcons" TextColor="#aaaaaa" FontSize="14" HorizontalOptions="Center"  Margin="0,2,0,0"/>
                 <Button Text="Push" BackgroundColor="Transparent" TextColor="Gray" FontSize="Caption" Margin="0,-12,0,0"/>
             </VerticalStackLayout>
 
