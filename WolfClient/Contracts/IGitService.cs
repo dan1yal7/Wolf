@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace WolfClient.Contracts
 {
-    internal interface IGitService
+    public interface IGitService
     {
+       Task CloneAsync(string repositoryUrl, string path);
     }
 }
