@@ -10,8 +10,23 @@
 
         <StackLayout Spacing="5" Orientation="Horizontal" VerticalOptions="Start" HeightRequest="40">
 
+             
+              
 
-            <Button Text="File" BackgroundColor="Transparent" TextColor="Gray" FontSize="Caption"/>
+            <Button Text="File"
+                    Clicked="OnFileClicked"
+                    BackgroundColor="Transparent" 
+                    TextColor="Gray" 
+                    FontSize="Caption">
+                <FlyoutBase.ContextFlyout>
+                    <MenuFlyout>
+                        <MenuFlyoutItem Text="Init New Repository" Clicked="OnInitClicked"/>
+                        <MenuFlyoutItem Text="Clone..." Clicked="OnCloneClicked"/>
+                        <MenuFlyoutSeparator/>
+                        <MenuFlyoutItem Text="Exit" Clicked="OnExitClicked"/>
+                    </MenuFlyout>
+                </FlyoutBase.ContextFlyout>
+            </Button>
 
             <Button Text="Edit" BackgroundColor="Transparent" TextColor="Gray" FontSize="Caption"/>
 
@@ -52,7 +67,8 @@
              <!--TODO: Extract header and subheader into different components and call them  in Main page-->
 
 
-
+ 
+            
             <VerticalStackLayout VerticalOptions="Center" Spacing="0">
                 <Label Text="south" FontFamily="MaterialIcons" TextColor="#aaaaaa" FontSize="14" HorizontalOptions="Center" Margin="0,2,0,0"/>
                 <Button Text="Fetch" BackgroundColor="Transparent" TextColor="Gray" FontSize="Caption" Margin="0,-12,0,0"/>

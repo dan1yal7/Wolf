@@ -8,6 +8,6 @@ namespace WolfClient.Contracts
 {
     public interface IGitService
     {
-       Task CloneAsync(string repositoryUrl, string path);
+       string CloneAsync(string repositoryUrl, string path);
     }
 }
