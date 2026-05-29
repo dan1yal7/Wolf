@@ -6,7 +6,8 @@
 
     <ContentPage.MenuBarItems>
         <MenuBarItem Text="File">
-            <MenuFlyoutItem Text="Init new Repository..."/>
+            <MenuFlyoutItem Text="Init new Repository..."
+                            Clicked="OnInitClicked"/>
             <MenuFlyoutItem Text="Clone"/>
             <MenuFlyoutItem Text="Exit"/>
 

@@ -1,7 +1,11 @@
-﻿namespace WolfClient
+﻿using WolfClient.Contracts;
+using WolfClient.Services;
+
+namespace WolfClient
 {
     public partial class MainPage : ContentPage
-    {
+    {  
+
         int count = 0;
 
         public MainPage()
@@ -25,7 +29,8 @@
         
         private void OnInitClicked(object? sender, EventArgs e)
         {
-
+            GitService gitService = new GitService();
+            gitService.InitNewRepositoryAsync("");
         }
     }
 }

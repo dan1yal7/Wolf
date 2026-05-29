@@ -18,7 +18,7 @@ namespace WolfClient
 
 #if DEBUG
     		builder.Logging.AddDebug();
-#endif
+#endif  
 
             return builder.Build();
         }

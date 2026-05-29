@@ -9,5 +9,6 @@ namespace WolfClient.Contracts
     public interface IGitService
     {
        string CloneAsync(string repositoryUrl, string path);
+       string InitNewRepositoryAsync(string path);
     }
 }

@@ -23,5 +23,18 @@ namespace WolfClient.Services
                 throw new Exception($"Failed to clone repository: {ex.Message}");
             }
         }
+
+        public string InitNewRepositoryAsync(string path)
+        {
+            try
+            {
+                var intitializedRepo = Repository.Init(path);
+                return intitializedRepo;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Failed to initialize repository: {ex.Message}");
+            }
+        }
     }
 }
