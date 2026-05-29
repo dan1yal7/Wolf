@@ -4,43 +4,47 @@
              x:Class="WolfClient.MainPage"
              Background="#0a0a0a">
 
+    <ContentPage.MenuBarItems>
+        <MenuBarItem Text="File">
+            <MenuFlyoutItem Text="Init new Repository..."/>
+            <MenuFlyoutItem Text="Clone"/>
+            <MenuFlyoutItem Text="Exit"/>
+
+        </MenuBarItem>
+
+        <MenuBarItem Text="Edit">
+            
+        </MenuBarItem>
+
+
+        <MenuBarItem Text="Repository">
+
+        </MenuBarItem>
+
+        <MenuBarItem Text="Branch">
+
+        </MenuBarItem>
+
+
+        <MenuBarItem Text="Commit">
+
+        </MenuBarItem>
+
+
+        <MenuBarItem Text="View">
+
+        </MenuBarItem>
+
+        <MenuBarItem Text="Help">
+
+        </MenuBarItem>
+
+
+    </ContentPage.MenuBarItems>
+
 
     <StackLayout Spacing="0">
 
-
-        <StackLayout Spacing="5" Orientation="Horizontal" VerticalOptions="Start" HeightRequest="40">
-
-             
-              
-
-            <Button Text="File"
-                    Clicked="OnFileClicked"
-                    BackgroundColor="Transparent" 
-                    TextColor="Gray" 
-                    FontSize="Caption">
-                <FlyoutBase.ContextFlyout>
-                    <MenuFlyout>
-                        <MenuFlyoutItem Text="Init New Repository" Clicked="OnInitClicked"/>
-                        <MenuFlyoutItem Text="Clone..." Clicked="OnCloneClicked"/>
-                        <MenuFlyoutSeparator/>
-                        <MenuFlyoutItem Text="Exit" Clicked="OnExitClicked"/>
-                    </MenuFlyout>
-                </FlyoutBase.ContextFlyout>
-            </Button>
-
-            <Button Text="Edit" BackgroundColor="Transparent" TextColor="Gray" FontSize="Caption"/>
-
-            <Button Text="Repository" BackgroundColor="Transparent" TextColor="Gray" FontSize="Caption"/>
-
-            <Button Text="Branch" BackgroundColor="Transparent" TextColor="Gray" FontSize="Caption"/>
-
-            <Button Text="Commit" BackgroundColor="Transparent" TextColor="Gray" FontSize="Caption"/>
-
-            <Button Text="View" BackgroundColor="Transparent" TextColor="Gray" FontSize="Caption"/>
-
-            <Button Text="Help" BackgroundColor="Transparent" TextColor="Gray" FontSize="Caption"/>
-
-        </StackLayout>
 
         <BoxView HeightRequest="1" BackgroundColor="#2a2a2a" HorizontalOptions="Fill"/>
 
