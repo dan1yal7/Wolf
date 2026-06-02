@@ -1,4 +1,5 @@
-﻿using WolfClient.Contracts;
+﻿using CommunityToolkit.Maui.Storage;
+using WolfClient.Contracts;
 using WolfClient.Services;
 
 namespace WolfClient
@@ -12,6 +13,8 @@ namespace WolfClient
         {
             InitializeComponent();
         }
+
+        #region eventhandlers
 
         private void OnFileClicked(object? sender, EventArgs e)
         {
@@ -27,10 +30,18 @@ namespace WolfClient
             
         }
         
-        private void OnInitClicked(object? sender, EventArgs e)
+        private async void OnInitClicked(object? sender, EventArgs e)
         {
-            GitService gitService = new GitService();
-            gitService.InitNewRepositoryAsync("");
+            var result = await FolderPicker.Default.PickAsync(CancellationToken.None);
+
+            if (result.IsSuccessful) 
+            {
+                string selectedPath = result.Folder.Path;
+                GitService gitService = new GitService();
+                gitService.InitNewRepositoryAsync(selectedPath);
+            }
         }
+
+        #endregion
     }
 }
