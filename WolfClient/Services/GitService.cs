@@ -10,7 +10,7 @@ namespace WolfClient.Services
 {
     public class GitService : IGitService    
     {
-        public string CloneAsync(string repositoryUrl, string path)
+        public async Task<string> CloneAsync(string repositoryUrl, string path)
         {
             try
             {
@@ -24,7 +24,7 @@ namespace WolfClient.Services
             }
         }
 
-        public string InitNewRepositoryAsync(string path)
+        public async Task<string> InitNewRepositoryAsync(string path)
         {
             try
             {
