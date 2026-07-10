@@ -32,11 +32,20 @@ namespace WolfClient
         {
             var result = await FolderPicker.Default.PickAsync(CancellationToken.None);
 
-            if (result.IsSuccessful) 
+            if (!result.IsSuccessful)
+                return;
+
+            string selectedPath = result.Folder.Path;
+            GitService gitService = new GitService();
+
+            try
             {
-                string selectedPath = result.Folder.Path;
-                GitService gitService = new GitService();
-                gitService.InitNewRepositoryAsync(selectedPath);
+                await gitService.InitNewRepositoryAsync(selectedPath);
+                await DisplayAlert("Success", "Repository initialized", "OK");
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Error", ex.Message, "OK");
             }
         }
 

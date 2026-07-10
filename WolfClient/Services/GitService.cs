@@ -1,40 +1,34 @@
-﻿using LibGit2Sharp;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using LibGit2Sharp;
 using WolfClient.Contracts;
 
 namespace WolfClient.Services
 {
-    public class GitService : IGitService    
+    public class GitService : IGitService
     {
-        public async Task<string> CloneAsync(string repositoryUrl, string path)
-        {
-            try
+        public Task<string> CloneAsync(string repositoryUrl, string path) =>
+            Task.Run(() =>
             {
-                var clonedRepo = Repository.Clone(repositoryUrl, path);
+                try
+                {
+                    return Repository.Clone(repositoryUrl, path);
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception($"Failed to clone repository: {ex.Message}", ex);
+                }
+            });
 
-                return clonedRepo;
-            }
-            catch(Exception ex)
+        public Task<string> InitNewRepositoryAsync(string path) =>
+            Task.Run(() =>
             {
-                throw new Exception($"Failed to clone repository: {ex.Message}");
-            }
-        }
-
-        public async Task<string> InitNewRepositoryAsync(string path)
-        {
-            try
-            {
-                var intitializedRepo = Repository.Init(path);
-                return intitializedRepo;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception($"Failed to initialize repository: {ex.Message}");
-            }
-        }
+                try
+                {
+                    return Repository.Init(path);
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception($"Failed to initialize repository: {ex.Message}", ex);
+                }
+            });
     }
 }
