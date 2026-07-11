@@ -9,7 +9,9 @@
             <MenuFlyoutItem Text="Init new Repository..."
                             Clicked="OnInitClicked" 
                             />
-            <MenuFlyoutItem Text="Clone"/>
+            <MenuFlyoutItem Text="Clone"
+                            Clicked="OnCloneClicked"/>
+            
             <MenuFlyoutItem Text="Exit"/>
 
         </MenuBarItem>

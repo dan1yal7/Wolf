@@ -1,15 +1,21 @@
-﻿using CommunityToolkit.Maui.Storage;
+﻿using CommunityToolkit.Maui;
+using CommunityToolkit.Maui.Storage;
+using Microsoft.Maui.Controls.Shapes;
 using WolfClient.Contracts;
-using WolfClient.Services;
+using WolfClient.ViewModels;
 
 namespace WolfClient
 {
     public partial class MainPage : ContentPage
-    {  
+    {
+        private readonly IGitService _gitService;
+        private readonly IPopupService _popupService;
 
-        public MainPage()
+        public MainPage(IGitService gitService, IPopupService popupService)
         {
             InitializeComponent();
+            _gitService = gitService;
+            _popupService = popupService;
         }
 
         #region eventhandlers
@@ -19,9 +25,21 @@ namespace WolfClient
             var button = sender as Button;
             FlyoutBase.GetContextFlyout(button);
         }
-        private void OnCloneClicked(object? sender, EventArgs e)
+        private async void OnCloneClicked(object? sender, EventArgs e)
         {
-           
+            var options = new PopupOptions
+            {
+                PageOverlayColor = Color.FromArgb("#99000000"),
+                Shape = new RoundRectangle
+                {
+                    CornerRadius = new CornerRadius(10),
+                    Fill = Color.FromArgb("#2D2D30"),
+                    Stroke = Color.FromArgb("#3F3F46"),
+                    StrokeThickness = 1
+                }
+            };
+
+            await _popupService.ShowPopupAsync<ClonePopUpViewModel>(this, options);
         }
         private void OnExitClicked(object? sender, EventArgs e)
         {
@@ -36,11 +54,10 @@ namespace WolfClient
                 return;
 
             string selectedPath = result.Folder.Path;
-            GitService gitService = new GitService();
 
             try
             {
-                await gitService.InitNewRepositoryAsync(selectedPath);
+                await _gitService.InitNewRepositoryAsync(selectedPath);
                 await DisplayAlert("Success", "Repository initialized", "OK");
             }
             catch (Exception ex)
