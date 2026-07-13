@@ -6,7 +6,7 @@
     x:Class="WolfClient.Components.ClonePopUp"
     x:DataType="viewModels:ClonePopUpViewModel">
 
-    <!--<ContentView.Resources>
+    <ContentView.Resources>
         <Style x:Key="RowLabel" TargetType="Label">
             <Setter Property="TextColor" Value="#B4B4B4" />
             <Setter Property="FontSize" Value="13" />
@@ -29,7 +29,7 @@
             <Setter Property="PlaceholderColor" Value="#6E6E6E" />
             <Setter Property="FontSize" Value="14" />
         </Style>
-    </ContentView.Resources>-->
+    </ContentView.Resources>
 
     <!--<Grid WidthRequest="560"
           Padding="22"
