@@ -33,7 +33,6 @@ namespace WolfClient
                 Shape = new RoundRectangle
                 {
                     CornerRadius = new CornerRadius(10),
-                    Fill = Color.FromArgb("#2D2D30"),
                     Stroke = Color.FromArgb("#3F3F46"),
                     StrokeThickness = 1
                 }

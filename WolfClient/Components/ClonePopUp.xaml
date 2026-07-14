@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentView
+<toolkit:Popup
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     xmlns:viewModels="clr-namespace:WolfClient.ViewModels"
     x:Class="WolfClient.Components.ClonePopUp"
-    x:DataType="viewModels:ClonePopUpViewModel">
+    x:DataType="viewModels:ClonePopUpViewModel"
+    BackgroundColor="#2D2D30"
+    Padding="0">
 
-    <ContentView.Resources>
+    <toolkit:Popup.Resources>
         <Style x:Key="RowLabel" TargetType="Label">
             <Setter Property="TextColor" Value="#B4B4B4" />
             <Setter Property="FontSize" Value="13" />
@@ -29,15 +32,14 @@
             <Setter Property="PlaceholderColor" Value="#6E6E6E" />
             <Setter Property="FontSize" Value="14" />
         </Style>
-    </ContentView.Resources>
+    </toolkit:Popup.Resources>
 
-    <!--<Grid WidthRequest="560"
+    <Grid WidthRequest="560"
           Padding="22"
           RowSpacing="16"
-          BackgroundColor="#2D2D30"
           RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto">
 
-        --><!-- Header --><!--
+        <!-- Header -->
         <Grid Grid.Row="0" ColumnDefinitions="Auto,*,Auto" ColumnSpacing="12">
             <Border Grid.Column="0"
                     WidthRequest="44" HeightRequest="44"
@@ -62,9 +64,10 @@
                     Command="{Binding CancelCommand}" />
         </Grid>
 
-        --><!-- Repository URL --><!--
+        <!-- Repository URL -->
         <Grid Grid.Row="1" ColumnDefinitions="118,*" ColumnSpacing="10">
-            <Label Grid.Column="0" Text="Repository Url:" Style="{StaticResource RowLabel}" VerticalOptions="Start" Margin="0,8,0,0" />
+            <Label Grid.Column="0" Text="Repository Url:" Style="{StaticResource RowLabel}"
+                   VerticalOptions="Center" />
             <VerticalStackLayout Grid.Column="1" Spacing="4">
                 <Border Style="{StaticResource FieldBorder}">
                     <Grid ColumnDefinitions="Auto,*" ColumnSpacing="8">
@@ -79,7 +82,7 @@
             </VerticalStackLayout>
         </Grid>
 
-        --><!-- Parent folder --><!--
+        <!-- Parent folder -->
         <Grid Grid.Row="2" ColumnDefinitions="118,*" ColumnSpacing="10">
             <Label Grid.Column="0" Text="Parent Folder:" Style="{StaticResource RowLabel}" />
             <Border Grid.Column="1" Style="{StaticResource FieldBorder}" Padding="8,0,4,0">
@@ -93,7 +96,7 @@
             </Border>
         </Grid>
 
-        --><!-- Name --><!--
+        <!-- Name -->
         <Grid Grid.Row="3" ColumnDefinitions="118,*" ColumnSpacing="10">
             <Label Grid.Column="0" Text="Name:" Style="{StaticResource RowLabel}" />
             <Border Grid.Column="1" Style="{StaticResource FieldBorder}">
@@ -101,12 +104,12 @@
             </Border>
         </Grid>
 
-        --><!-- Error message --><!--
+        <!-- Error message -->
         <Label Grid.Row="4" Text="{Binding ErrorMessage}" TextColor="#F26D6D" FontSize="12"
                IsVisible="{Binding HasError}"
                Margin="128,0,0,0" />
 
-        --><!-- Footer --><!--
+        <!-- Footer -->
         <HorizontalStackLayout Grid.Row="5" HorizontalOptions="End" Spacing="10">
             <Button Text="Clone" Command="{Binding CloneCommand}"
                     BackgroundColor="#2F80ED" TextColor="White"
@@ -115,6 +118,6 @@
                     BackgroundColor="#3A3A3D" TextColor="#E6E6E6"
                     WidthRequest="96" HeightRequest="34" CornerRadius="4" FontSize="14" />
         </HorizontalStackLayout>
-    </Grid>-->
+    </Grid>
 
-</ContentView>
+</toolkit:Popup>
