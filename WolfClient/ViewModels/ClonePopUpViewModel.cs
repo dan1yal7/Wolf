@@ -35,14 +35,10 @@ namespace WolfClient.ViewModels
             _gitService = gitService;
         }
 
-        // "The current visible page" — это ContentPage внутри Shell, а не сам Shell.
-        private static Page? CurrentPage => Shell.Current?.CurrentPage;
-
         [RelayCommand]
         async Task Cancel()
         {
-            if (CurrentPage is { } page)
-                await _popupService.ClosePopupAsync(page);
+            await _popupService.ClosePopupAsync(Shell.Current);
         }
 
         [RelayCommand]
@@ -58,15 +54,13 @@ namespace WolfClient.ViewModels
         {
             try
             {
-                errorMessage = null;
+                ErrorMessage = null;
                 await _gitService.CloneAsync(RepoUrl, Path.Combine(ParentFolder, RepositoryName));
-
-                if (CurrentPage is { } page)
-                    await _popupService.ClosePopupAsync(page);
+                await _popupService.ClosePopupAsync(Shell.Current);
             }
             catch (Exception ex)
             {
-                errorMessage = ex.Message;
+                ErrorMessage = ex.Message;
             }
         }
 

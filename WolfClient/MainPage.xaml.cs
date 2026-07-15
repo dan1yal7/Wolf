@@ -1,6 +1,5 @@
 ﻿using CommunityToolkit.Maui;
 using CommunityToolkit.Maui.Storage;
-using Microsoft.Maui.Controls.Shapes;
 using WolfClient.Contracts;
 using WolfClient.ViewModels;
 
@@ -29,13 +28,8 @@ namespace WolfClient
         {
             var options = new PopupOptions
             {
-                PageOverlayColor = Color.FromArgb("#99000000"),
-                Shape = new RoundRectangle
-                {
-                    CornerRadius = new CornerRadius(10),
-                    Stroke = Color.FromArgb("#3F3F46"),
-                    StrokeThickness = 1
-                }
+                CanBeDismissedByTappingOutsideOfPopup = false,
+                PageOverlayColor = Color.FromArgb("#99000000")
             };
 
             await _popupService.ShowPopupAsync<ClonePopUpViewModel>(this, options);

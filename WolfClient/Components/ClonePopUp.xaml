@@ -6,7 +6,7 @@
     xmlns:viewModels="clr-namespace:WolfClient.ViewModels"
     x:Class="WolfClient.Components.ClonePopUp"
     x:DataType="viewModels:ClonePopUpViewModel"
-    BackgroundColor="#2D2D30"
+    BackgroundColor="Transparent"
     Padding="0">
 
     <toolkit:Popup.Resources>
@@ -34,90 +34,95 @@
         </Style>
     </toolkit:Popup.Resources>
 
-    <Grid WidthRequest="560"
-          Padding="22"
-          RowSpacing="16"
-          RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto">
+    <Border BackgroundColor="#2D2D30"
+            Stroke="#3F3F46"
+            StrokeThickness="1"
+            StrokeShape="RoundRectangle 10">
+        <Grid WidthRequest="560"
+              Padding="22"
+              RowSpacing="16"
+              RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto">
 
-        <!-- Header -->
-        <Grid Grid.Row="0" ColumnDefinitions="Auto,*,Auto" ColumnSpacing="12">
-            <Border Grid.Column="0"
-                    WidthRequest="44" HeightRequest="44"
-                    BackgroundColor="#2F80ED"
-                    StrokeThickness="0"
-                    StrokeShape="RoundRectangle 22"
-                    VerticalOptions="Start">
-                <Label Text="call_split" FontFamily="MaterialIcons" TextColor="White"
-                       FontSize="22" HorizontalOptions="Center" VerticalOptions="Center" />
-            </Border>
+            <!-- Header -->
+            <Grid Grid.Row="0" ColumnDefinitions="Auto,*,Auto" ColumnSpacing="12">
+                <Border Grid.Column="0"
+                        WidthRequest="44" HeightRequest="44"
+                        BackgroundColor="#2F80ED"
+                        StrokeThickness="0"
+                        StrokeShape="RoundRectangle 22"
+                        VerticalOptions="Start">
+                    <Label Text="call_split" FontFamily="MaterialIcons" TextColor="White"
+                           FontSize="22" HorizontalOptions="Center" VerticalOptions="Center" />
+                </Border>
 
-            <VerticalStackLayout Grid.Column="1" Spacing="2" VerticalOptions="Center">
-                <Label Text="Clone" TextColor="White" FontSize="18" FontAttributes="Bold" />
-                <Label Text="Clone a remote repository into a local folder"
-                       TextColor="#9D9D9D" FontSize="12" />
-            </VerticalStackLayout>
+                <VerticalStackLayout Grid.Column="1" Spacing="2" VerticalOptions="Center">
+                    <Label Text="Clone" TextColor="White" FontSize="18" FontAttributes="Bold" />
+                    <Label Text="Clone a remote repository into a local folder"
+                           TextColor="#9D9D9D" FontSize="12" />
+                </VerticalStackLayout>
 
-            <Button Grid.Column="2" Text="close" FontFamily="MaterialIcons"
-                    BackgroundColor="Transparent" TextColor="#9D9D9D" FontSize="18"
-                    WidthRequest="32" HeightRequest="32" Padding="0"
-                    VerticalOptions="Start"
-                    Command="{Binding CancelCommand}" />
-        </Grid>
+                <Button Grid.Column="2" Text="close" FontFamily="MaterialIcons"
+                        BackgroundColor="Transparent" TextColor="#9D9D9D" FontSize="18"
+                        WidthRequest="32" HeightRequest="32" Padding="0"
+                        VerticalOptions="Start"
+                        Command="{Binding CancelCommand}" />
+            </Grid>
 
-        <!-- Repository URL -->
-        <Grid Grid.Row="1" ColumnDefinitions="118,*" ColumnSpacing="10">
-            <Label Grid.Column="0" Text="Repository Url:" Style="{StaticResource RowLabel}"
-                   VerticalOptions="Center" />
-            <VerticalStackLayout Grid.Column="1" Spacing="4">
-                <Border Style="{StaticResource FieldBorder}">
-                    <Grid ColumnDefinitions="Auto,*" ColumnSpacing="8">
-                        <Label Grid.Column="0" Text="link" FontFamily="MaterialIcons"
-                               TextColor="#7A7A7A" FontSize="16" VerticalOptions="Center" />
-                        <Entry Grid.Column="1" Placeholder="Git Repository Url" Text="{Binding RepoUrl}" />
+            <!-- Repository URL -->
+            <Grid Grid.Row="1" ColumnDefinitions="118,*" ColumnSpacing="10">
+                <Label Grid.Column="0" Text="Repository Url:" Style="{StaticResource RowLabel}"
+                       VerticalOptions="Center" />
+                <VerticalStackLayout Grid.Column="1" Spacing="4">
+                    <Border Style="{StaticResource FieldBorder}">
+                        <Grid ColumnDefinitions="Auto,*" ColumnSpacing="8">
+                            <Label Grid.Column="0" Text="link" FontFamily="MaterialIcons"
+                                   TextColor="#7A7A7A" FontSize="16" VerticalOptions="Center" />
+                            <Entry Grid.Column="1" Placeholder="Git Repository Url" Text="{Binding RepoUrl}" />
+                        </Grid>
+                    </Border>
+                    <Button Text="Test Connection" BackgroundColor="Transparent" TextColor="#3E9BFF"
+                            FontSize="12" Padding="0" HeightRequest="22"
+                            HorizontalOptions="Start" />
+                </VerticalStackLayout>
+            </Grid>
+
+            <!-- Parent folder -->
+            <Grid Grid.Row="2" ColumnDefinitions="118,*" ColumnSpacing="10">
+                <Label Grid.Column="0" Text="Parent Folder:" Style="{StaticResource RowLabel}" />
+                <Border Grid.Column="1" Style="{StaticResource FieldBorder}" Padding="8,0,4,0">
+                    <Grid ColumnDefinitions="*,Auto">
+                        <Entry Grid.Column="0" Placeholder="C:\Users\..." Text="{Binding ParentFolder}" />
+                        <Button Grid.Column="1" Text="folder" FontFamily="MaterialIcons"
+                                BackgroundColor="Transparent" TextColor="#B4B4B4" FontSize="18"
+                                WidthRequest="32" HeightRequest="32" Padding="0"
+                                Command="{Binding BrowseFolderCommand}" />
                     </Grid>
                 </Border>
-                <Button Text="Test Connection" BackgroundColor="Transparent" TextColor="#3E9BFF"
-                        FontSize="12" Padding="0" HeightRequest="22"
-                        HorizontalOptions="Start" />
-            </VerticalStackLayout>
+            </Grid>
+
+            <!-- Name -->
+            <Grid Grid.Row="3" ColumnDefinitions="118,*" ColumnSpacing="10">
+                <Label Grid.Column="0" Text="Name:" Style="{StaticResource RowLabel}" />
+                <Border Grid.Column="1" Style="{StaticResource FieldBorder}">
+                    <Entry Placeholder="Repository name" Text="{Binding RepositoryName}" />
+                </Border>
+            </Grid>
+
+            <!-- Error message -->
+            <Label Grid.Row="4" Text="{Binding ErrorMessage}" TextColor="#F26D6D" FontSize="12"
+                   IsVisible="{Binding HasError}"
+                   Margin="128,0,0,0" />
+
+            <!-- Footer -->
+            <HorizontalStackLayout Grid.Row="5" HorizontalOptions="End" Spacing="10">
+                <Button Text="Clone" Command="{Binding CloneCommand}"
+                        BackgroundColor="#2F80ED" TextColor="White"
+                        WidthRequest="96" HeightRequest="34" CornerRadius="4" FontSize="14" />
+                <Button Text="Cancel" Command="{Binding CancelCommand}"
+                        BackgroundColor="#3A3A3D" TextColor="#E6E6E6"
+                        WidthRequest="96" HeightRequest="34" CornerRadius="4" FontSize="14" />
+            </HorizontalStackLayout>
         </Grid>
-
-        <!-- Parent folder -->
-        <Grid Grid.Row="2" ColumnDefinitions="118,*" ColumnSpacing="10">
-            <Label Grid.Column="0" Text="Parent Folder:" Style="{StaticResource RowLabel}" />
-            <Border Grid.Column="1" Style="{StaticResource FieldBorder}" Padding="8,0,4,0">
-                <Grid ColumnDefinitions="*,Auto">
-                    <Entry Grid.Column="0" Placeholder="C:\Users\..." Text="{Binding ParentFolder}" />
-                    <Button Grid.Column="1" Text="folder" FontFamily="MaterialIcons"
-                            BackgroundColor="Transparent" TextColor="#B4B4B4" FontSize="18"
-                            WidthRequest="32" HeightRequest="32" Padding="0"
-                            Command="{Binding BrowseFolderCommand}" />
-                </Grid>
-            </Border>
-        </Grid>
-
-        <!-- Name -->
-        <Grid Grid.Row="3" ColumnDefinitions="118,*" ColumnSpacing="10">
-            <Label Grid.Column="0" Text="Name:" Style="{StaticResource RowLabel}" />
-            <Border Grid.Column="1" Style="{StaticResource FieldBorder}">
-                <Entry Placeholder="Repository name" Text="{Binding RepositoryName}" />
-            </Border>
-        </Grid>
-
-        <!-- Error message -->
-        <Label Grid.Row="4" Text="{Binding ErrorMessage}" TextColor="#F26D6D" FontSize="12"
-               IsVisible="{Binding HasError}"
-               Margin="128,0,0,0" />
-
-        <!-- Footer -->
-        <HorizontalStackLayout Grid.Row="5" HorizontalOptions="End" Spacing="10">
-            <Button Text="Clone" Command="{Binding CloneCommand}"
-                    BackgroundColor="#2F80ED" TextColor="White"
-                    WidthRequest="96" HeightRequest="34" CornerRadius="4" FontSize="14" />
-            <Button Text="Cancel" Command="{Binding CancelCommand}"
-                    BackgroundColor="#3A3A3D" TextColor="#E6E6E6"
-                    WidthRequest="96" HeightRequest="34" CornerRadius="4" FontSize="14" />
-        </HorizontalStackLayout>
-    </Grid>
+    </Border>
 
 </toolkit:Popup>
