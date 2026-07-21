@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.0.31903.59
+# Visual Studio Version 18
+VisualStudioVersion = 18.7.11911.148 stable
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WolfClient", "WolfClient\WolfClient.csproj", "{7E5ABCD2-FD03-2C99-9401-348950F76214}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary1", "ClassLibrary1\ClassLibrary1.csproj", "{D186C0E2-8075-4235-962D-EFA942817BE0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -16,6 +18,10 @@ Global
 		{7E5ABCD2-FD03-2C99-9401-348950F76214}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{7E5ABCD2-FD03-2C99-9401-348950F76214}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E5ABCD2-FD03-2C99-9401-348950F76214}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D186C0E2-8075-4235-962D-EFA942817BE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D186C0E2-8075-4235-962D-EFA942817BE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D186C0E2-8075-4235-962D-EFA942817BE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D186C0E2-8075-4235-962D-EFA942817BE0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
