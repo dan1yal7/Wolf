@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<toolkit:Popup
+<ContentView
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     xmlns:viewModels="clr-namespace:WolfClient.ViewModels"
     x:Class="WolfClient.Components.ClonePopUp"
     x:DataType="viewModels:ClonePopUpViewModel"
-    BackgroundColor="Transparent"
-    Padding="0">
+    HorizontalOptions="Center"
+    VerticalOptions="Center">
 
-    <toolkit:Popup.Resources>
+    <ContentView.Resources>
         <Style x:Key="RowLabel" TargetType="Label">
             <Setter Property="TextColor" Value="#B4B4B4" />
             <Setter Property="FontSize" Value="13" />
@@ -32,7 +31,7 @@
             <Setter Property="PlaceholderColor" Value="#6E6E6E" />
             <Setter Property="FontSize" Value="14" />
         </Style>
-    </toolkit:Popup.Resources>
+    </ContentView.Resources>
 
     <Border BackgroundColor="#2D2D30"
             Stroke="#3F3F46"
@@ -125,4 +124,4 @@
         </Grid>
     </Border>
 
-</toolkit:Popup>
+</ContentView>
